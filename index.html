@@ -1,6 +1,333 @@
-<details class="expand">
-  <summary>Read full technical analysis</summary>
-  <p>
-    Full deterministic admissibility narrative goes here…
-  </p>
-</details>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admissibility Labs, LLC — Deterministic Continuity</title>
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --ink:#0b0f19;
+      --muted:#5b6476;
+      --line:#e7e9ef;
+      --panel:#f7f8fb;
+      --accent:#0b5c7a;
+      --accent2:#09485f;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font-family:var(--sans); color:var(--ink); background:var(--bg); line-height:1.45;}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{
+      position:sticky; top:0; z-index:10;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:saturate(180%) blur(8px);
+      border-bottom:1px solid var(--line);
+    }
+    .wrap{max-width:1100px; margin:0 auto; padding:0 18px;}
+    .topbar{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 0;}
+    .brand{display:flex; align-items:center; gap:12px;}
+    .seal{
+      width:34px; height:34px; border:1px solid var(--line);
+      border-radius:10px; display:flex; align-items:center; justify-content:center;
+      background:var(--panel);
+      overflow:hidden;
+    }
+    .seal img{width:100%; height:100%; object-fit:contain; display:block;}
+    .brand h1{margin:0; font-size:14px; letter-spacing:.2px;}
+    .brand .sub{margin:0; font-size:12px; color:var(--muted)}
+    nav{display:flex; flex-wrap:wrap; gap:14px; font-size:13px;}
+    nav a{color:var(--muted)}
+    nav a:hover{color:var(--ink)}
+    .hero{padding:28px 0 18px;}
+    .grid{display:grid; grid-template-columns: 1.25fr .75fr; gap:18px;}
+    @media (max-width: 920px){ .grid{grid-template-columns:1fr;} }
+    .card{
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+      padding:18px;
+      box-shadow:0 1px 0 rgba(10,20,30,.04);
+    }
+    .card.soft{background:var(--panel);}
+    .kicker{
+      font-family:var(--mono);
+      color:var(--muted);
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin:0 0 10px;
+    }
+    h2{margin:0 0 10px; font-size:32px; letter-spacing:-.02em;}
+    h3{margin:0 0 8px; font-size:18px;}
+    p{margin:0 0 10px;}
+    .muted{color:var(--muted)}
+    .btnrow{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px; border-radius:999px;
+      border:1px solid var(--line); background:#fff;
+      color:var(--accent2); font-size:13px; font-weight:600;
+    }
+    .btn.primary{background:var(--accent); border-color:var(--accent); color:#fff;}
+    .btn.primary:hover{background:var(--accent2); border-color:var(--accent2);}
+    .btn:hover{border-color:#cfd5e2;}
+    .section{padding:16px 0;}
+    .two{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+    @media (max-width:920px){ .two{grid-template-columns:1fr;} }
+    .box{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:14px;
+      background:#fff;
+    }
+    .def{
+      font-family:var(--mono);
+      font-size:12px;
+      color:var(--muted);
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:12px;
+      white-space:pre-wrap;
+    }
+
+    /* Expand blocks */
+    details.expand{
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+      padding:12px 14px;
+      margin-top:12px;
+    }
+    details.expand summary{cursor:pointer; font-weight:700; color:var(--accent2);}
+    details.expand[open] summary{margin-bottom:8px;}
+    details.expand p{color:var(--muted);}
+
+    .list{margin:8px 0 0; padding-left:18px;}
+    .list li{margin:6px 0;}
+    footer{border-top:1px solid var(--line); margin-top:22px; padding:18px 0 28px; color:var(--muted); font-size:12px;}
+    .pillrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
+    .pill{
+      font-family:var(--mono);
+      font-size:11px;
+      color:var(--muted);
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:6px 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="seal">
+          <img src="logo.png" alt="Admissibility Labs Monogram">
+        </div>
+        <div>
+          <h1>Admissibility Labs, LLC</h1>
+          <p class="sub">Institutional Research Secretariat</p>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#gateway">Gateway</a>
+        <a href="#framework">Framework</a>
+        <a href="#sovereign-dividend">Sovereign Dividend</a>
+        <a href="#research">Research</a>
+        <a href="#governance">Governance</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a class="btn primary" href="#contact">Request Evidence Packet</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="gateway" class="hero grid">
+    <div class="card">
+      <p class="kicker">Sovereign-neutral settlement infrastructure</p>
+      <h2>Deterministic Continuity</h2>
+      <p class="muted">
+        Admissibility Labs provides a vendor-neutral research surface for deterministic admissibility,
+        execution-agnostic settlement logic, and evidentiary-grade system behavior.
+      </p>
+      <div class="btnrow">
+        <a class="btn primary" href="#contact">Request Evidence Packet</a>
+        <a class="btn" href="#framework">Read the Framework</a>
+        <a class="btn" href="#sovereign-dividend">View Sovereign Dividend</a>
+      </div>
+
+      <details class="expand">
+        <summary>Read full technical analysis</summary>
+        <p>Full deterministic admissibility narrative, inspection posture, and exhibit references are distributed under MSOP-controlled release.</p>
+      </details>
+    </div>
+
+    <aside>
+      <div class="box">
+        <p class="kicker">Mandate</p>
+        <div class="def">Function: Institutional Research Secretariat
+Scope: settlement integrity · admissibility constraints · valuation primitives
+Outputs: replay artifacts · renderer-only contracts · rejection proofs
+Interface: inspection-ready exhibits for institutions, counsel, and regulators</div>
+      </div>
+
+      <div style="height:12px"></div>
+
+      <div class="box">
+        <p class="kicker">Posture</p>
+        <div class="pillrow">
+          <span class="pill">Vendor-neutral</span>
+          <span class="pill">Execution-agnostic</span>
+          <span class="pill">Protocol-agnostic</span>
+          <span class="pill">Evidentiary artifacts only</span>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <section id="framework" class="section grid">
+    <div class="card">
+      <h3>The Problem (Vortex)</h3>
+      <p>
+        Modern shared ledgers increase throughput and reduce messaging latency, but frequently preserve <em>post-hoc truth</em>—where
+        state integrity is reconciled after the fact. In high-velocity markets, this creates a residual integrity window where messaging
+        can temporarily outrun state truth.
+      </p>
+      <div class="def">Definition — Vortex Dynamics:
+Stability achieved through behavior and intervention (liquidity backstops, discretionary routing, policy mediation).
+Efficiency may rise while integrity risk persists.</div>
+
+      <details class="expand">
+        <summary>Expand integrity window framing</summary>
+        <p>Expanded rationale: why post-hoc reconciliation windows create systemic vulnerability at high throughput, and why ex-ante admissibility closes that window by design.</p>
+      </details>
+
+      <div style="height:14px"></div>
+
+      <h3>The Solution (Convex)</h3>
+      <p>
+        SOP-C introduces <em>ex-ante</em> admissibility constraints that gate settlement before a state transition can occur.
+        Stability becomes a structural property enforced by constraint geometry rather than discretionary process.
+      </p>
+      <div class="def">Definition — Convex Constraints:
+State transitions are permitted only inside admissible regions; violations are rejected deterministically.
+Stability is guaranteed by design, not by governance response time.</div>
+    </div>
+
+    <div class="card soft">
+      <h3>From Behavioral Flux to Structural Stability</h3>
+      <p class="muted">
+        Diagrammatic exhibits are published only when tied to an empirical annex or evidence packet to preserve evidentiary discipline.
+      </p>
+    </div>
+  </section>
+
+  <section id="sovereign-dividend" class="section">
+    <div class="card">
+      <p class="kicker">Economic Basis (Expanded)</p>
+      <h3>The Sovereign Dividend — Quantifying the Economic Recovery</h3>
+      <p>
+        The transition to a sovereign-neutral, index-linked settlement logic (SOP-C/UCI) is a net-positive fiscal event.
+        By replacing discretionary intermediaries with deterministic admissibility constraints, participating economies reclaim capital currently
+        lost to systemic settlement leakage.
+      </p>
+
+      <p>
+        This framework is a vendor-neutral and protocol-agnostic settlement standard, defined entirely by admissibility, execution invariance,
+        and observable system behavior rather than by platform, implementation, or technology stack.
+      </p>
+
+      <div class="two" style="margin-top:12px">
+        <div class="box">
+          <h3>A. Retail Ecosystem Resilience</h3>
+          <p class="muted"><strong>Estimated Annual Retention: ~$25.5B</strong></p>
+          <p class="muted">Representative adoption scenario: reduced intermediary leakage via bypass of extraterritorial routing taxes.</p>
+        </div>
+
+        <div class="box">
+          <h3>B. Global Liquidity Release</h3>
+          <p class="muted"><strong>Target magnitude: ~$1.2T (nostro/vostro capital)</strong></p>
+          <p class="muted">Deterministic netting reduces prefunding by extinguishing offsetting obligations prior to finalization.</p>
+        </div>
+      </div>
+
+      <details class="expand">
+        <summary>Read full economic impact narrative</summary>
+        <p>Extended analysis, assumptions, and annex references are available under MSOP-controlled distribution.</p>
+      </details>
+
+      <p style="margin-top:10px">
+        <strong>WP-01 Abstract (PDF) — Public Release (MSOP):</strong>
+        <a href="WP-01_Abstract.pdf" target="_blank" rel="noopener">Open PDF</a>
+      </p>
+    </div>
+  </section>
+
+  <section id="research" class="section">
+    <div class="card">
+      <h3>Research</h3>
+      <ul class="list">
+        <li><strong>WP-01</strong> — Deterministic Admissibility in High-Velocity Settlement Systems (Public abstract; full text by request under MSOP)</li>
+        <li><strong>WP-02</strong> — UCI as a Sovereign-Neutral Valuation Primitive (Abstract pending approval)</li>
+        <li><strong>Empirical Annexes</strong> — MSOP-controlled; distributed by request</li>
+        <li><strong>Evidence Packets</strong> — redacted replay artifacts & renderer-only contracts; inspection & validation use only</li>
+      </ul>
+
+      <details class="expand">
+        <summary>Expand research register</summary>
+        <p>Full register, versioning, and exhibit lineage are governed under MSOP; abstracts remain the only public surface.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="governance" class="section">
+    <div class="card">
+      <h3>Publication & Governance Register (MSOP)</h3>
+      <p class="muted">
+        Admissibility Labs maintains a governed publication register under the Multi-Sovereign Oversight Protocol (MSOP).
+      </p>
+      <div class="def">MSOP controls include:
+• Versioned release registry
+• Amendment and provenance logging
+• Redaction and disclosure discipline
+• Reproducibility and replay posture
+• Execution-agnostic, vendor-neutral, and protocol-agnostic governance controls</div>
+
+      <details class="expand">
+        <summary>Expand MSOP controls</summary>
+        <p>Controlled distribution, redaction discipline, and replay reproducibility posture are enforced per release entry.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="card">
+      <h3>Contact</h3>
+      <ul class="list">
+        <li><strong>General Inquiries:</strong> <a href="mailto:contact@admissibilitylabs.org">contact@admissibilitylabs.org</a></li>
+        <li><strong>Institutional & Policy:</strong> <a href="mailto:sktripathi@admissibilitylabs.org">sktripathi@admissibilitylabs.org</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div>Admissibility Labs, LLC — Public surface: abstracts only. Full texts, annexes, and evidence packets are MSOP-controlled and distributed by request.</div>
+    </div>
+  </footer>
+
+</main>
+</body>
+</html>
