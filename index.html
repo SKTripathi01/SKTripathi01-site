@@ -360,9 +360,67 @@ Stability is guaranteed by design, not by governance response time.</div>
         Requests are reviewed on a case-by-case basis. Eligible parties will receive
         a release identifier and distribution instructions.
       </p>
-    </details>
+      </details>
 
-    <p style="margin-top:10px">
+<!-- EP-01 Evidence Packet Request Form -->
+<div class="card" id="ep-request">
+
+  <h3>Evidence Packet Request (EP-01)</h3>
+
+  <p class="muted">
+    Requests for evidence packets are handled under the Multi-Sovereign Oversight Protocol (MSOP).
+    Submission of this form does not guarantee access.
+  </p>
+
+  <form action="mailto:contact@admissibilitylabs.org" method="post" enctype="text/plain">
+
+    <fieldset>
+      <legend><strong>Purpose of Request</strong></legend>
+      <label><input type="radio" name="Purpose" required> Institutional due diligence / technical review</label><br>
+      <label><input type="radio" name="Purpose"> Regulatory inspection-readiness review</label><br>
+      <label><input type="radio" name="Purpose"> Legal or counsel review</label><br>
+      <label><input type="radio" name="Purpose"> Internal risk or settlement-integrity evaluation</label>
+    </fieldset>
+
+    <fieldset>
+      <legend><strong>Requested Materials (EP-01 Scope)</strong></legend>
+      <label><input type="checkbox" name="Materials"> Redacted replay artifacts</label><br>
+      <label><input type="checkbox" name="Materials"> Deterministic rejection proofs</label><br>
+      <label><input type="checkbox" name="Materials"> Replayable transaction logs (redacted)</label><br>
+      <label><input type="checkbox" name="Materials"> Renderer-only contracts / inspection interfaces</label><br>
+      <label><input type="checkbox" name="Materials"> Release registry and provenance notes</label>
+    </fieldset>
+
+    <fieldset>
+      <legend><strong>Requesting Party</strong></legend>
+      <label>Organization<br><input type="text" name="Organization" required></label><br><br>
+      <label>Role / Function<br><input type="text" name="Role" required></label><br><br>
+      <label>Review team size<br><input type="number" name="TeamSize" min="1" required></label><br><br>
+      <label>Intended review window<br><input type="text" name="ReviewWindow"></label><br><br>
+      <label>Authorized delivery email domain<br><input type="text" name="EmailDomain" required></label>
+    </fieldset>
+
+    <fieldset>
+      <legend><strong>MSOP Handling Acknowledgement</strong></legend>
+      <label>
+        <input type="checkbox" name="Acknowledgement" required>
+        I acknowledge that EP-01 materials are MSOP-controlled and provided for inspection only.
+      </label>
+    </fieldset>
+
+    <br>
+    <button type="submit">Submit Request</button>
+
+  </form>
+
+</div>
+
+<p style="margin-top:10px">
+  <strong>Public material:</strong>
+  <a href="WP-01_Abstract_MSOP_PublicRelease.pdf" target="_blank" rel="noopener">
+    WP-01 Abstract (PDF)
+  </a>
+</p>
       <strong>Public material:</strong>
       <a href="WP-01_Abstract_MSOP_PublicRelease.pdf" target="_blank" rel="noopener">
         WP-01 Abstract (PDF)
