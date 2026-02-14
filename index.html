@@ -381,10 +381,26 @@ Stability is guaranteed by design, not by governance response time.</div>
 
     <fieldset>
       <legend><strong>Purpose of Request</strong></legend>
-      <label><input type="radio" name="Purpose" required> Institutional due diligence / technical review</label><br>
-      <label><input type="radio" name="Purpose"> Regulatory inspection-readiness review</label><br>
-      <label><input type="radio" name="Purpose"> Legal or counsel review</label><br>
-      <label><input type="radio" name="Purpose"> Internal risk or settlement-integrity evaluation</label>
+      <label>
+  <input type="radio" name="purpose" value="Institutional due diligence / technical review" required>
+  Institutional due diligence / technical review
+</label><br>
+
+<label>
+  <input type="radio" name="purpose" value="Regulatory inspection-readiness review">
+  Regulatory inspection-readiness review
+</label><br>
+
+<label>
+  <input type="radio" name="purpose" value="Legal or counsel review">
+  Legal or counsel review
+</label><br>
+
+<label>
+  <input type="radio" name="purpose" value="Internal risk or settlement-integrity evaluation">
+  Internal risk or settlement-integrity evaluation
+</label>
+
     </fieldset>
 
     <fieldset>
@@ -414,6 +430,9 @@ Stability is guaranteed by design, not by governance response time.</div>
     </fieldset>
 
     <br>
+    <p class="muted" style="margin-top:10px;">
+  Note: Please complete all required fields (including selecting a Purpose and checking the MSOP acknowledgment) before submitting.
+</p>
     <button type="submit">Submit Request</button>
 
   </form>
